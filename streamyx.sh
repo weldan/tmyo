@@ -28,7 +28,7 @@ fi
 
 ip=$1
 IFS=. read -a array <<< "$ip"
-for i in {4..254}
+for i in {1..254}
 do
 (
 echo open ${array[0]}.${array[1]}.${array[2]}.${i}
