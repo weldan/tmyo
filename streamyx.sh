@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 # tm streamyx router scanner
 # test router default login and dump config
-# if telnet is accessible from public
+# if telnet is accessible to public
 # similar tool / inspired by: https://github.com/shahril96/TM-Punk/
 # weldan <mweldan@gmail.com>, 2013
 # for educational purpose only  
@@ -14,12 +14,12 @@ then
     echo "# tm streamyx router telnet scanner"
     echo "###################################"
     echo "usage: $0 ip"
-    echo "will scan from ip.ip.ip.1 to 254"
+    echo "will scan entire ip range"
     echo "raw output will be stored in output.txt"
     echo "will grab these informations:"
     echo "- wifi login"
     echo "- adsl stat"
-    echo "- connection configuration"
+    echo "- router configuration"
     echo "###################################"
     echo "written to demonstrate flaw only, use at your own risk"
     echo ""
