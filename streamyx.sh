@@ -46,38 +46,6 @@ do
         sleep 1
         echo "support"
         sleep 1
-        echo "support"
-        sleep 1
-        echo ""
-        sleep 1
-        echo "admin"
-        sleep 1
-        echo "tmadmin"
-        sleep 1
-        echo "tmadmin"
-        sleep 1
-        echo "admin"
-        sleep 1
-        echo "admin"
-        sleep 1
-        echo "admin"
-        sleep 1
-        echo "tmuser"
-        sleep 1
-        echo "tmuser"
-        sleep 1
-        echo "tmbusiness"
-        sleep 1
-        echo "tmbusiness"
-        sleep 1
-        echo "tmuser"
-        sleep 1
-        echo "tmbusiness"
-        sleep 1
-        echo "tmadmin"
-        sleep 1
-        echo "tmbusiness"
-        sleep 1
         echo "wifissid"
         sleep 1
         echo ""
