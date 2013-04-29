@@ -5,7 +5,7 @@
 # weldan <mweldan@gmail.com>, 2013
 # for educational purpose only  
 
-if [ $# -eq 0 ]
+if [ $# -ne 1 ]
 then
     clear
     echo "#"
@@ -34,15 +34,14 @@ then
 fi 
 
 ip=$1
+port=23
 IFS=. read -a array <<< "$ip"
 for i in {1..254}
 do
     currentip=${array[0]}.${array[1]}.${array[2]}.${i}
-    if ($nc -zw2 $currentip 23)
+    if ($nc -zw2 $currentip $port)
     then
         (
-        echo open $currentip
-        sleep 2
         echo "support"
         sleep 1
         echo "support"
@@ -92,7 +91,7 @@ do
         sleep 1
         echo ""
         echo "quit"
-        sleep 1   
-        ) | telnet >>./output.txt
+        sleep 1          
+        ) | $nc -t -q 2 -vv $currentip $port >>./output.txt
     fi 
 done
