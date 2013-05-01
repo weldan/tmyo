@@ -24,6 +24,7 @@ if ($handle) {
             echo "=======================\n";
             echo "Found match! => $buffer\n";
             echo "=======================\n";
+            exit;
         }else {
             echo "Nope. :( => $buffer\n";
             //sleep(1);
