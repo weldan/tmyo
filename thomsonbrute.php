@@ -3,8 +3,8 @@
 #weldan, 2013
 <?php 
 $option = "f:";
-$option .= "h:";
 $option .= "u:";
+$option .= "h:";
 $options = getopt($option);
 
 if (!isset($options['f']) || !isset($options['h']) || !isset($options['u'])) {
@@ -13,8 +13,8 @@ if (!isset($options['f']) || !isset($options['h']) || !isset($options['u'])) {
 }
 
 $passlist = $options['f'];
-$hash = $options['h'];
 $user = $options['u'];
+$hash = $options['h'];
 
 $handle = @fopen($passlist, "r");
 if ($handle) {
