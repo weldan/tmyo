@@ -19,6 +19,7 @@ $hash = $options['h'];
 $handle = @fopen($passlist, "r");
 if ($handle) {
     while (($buffer = fgets($handle, 4096)) !== false) {
+        $buffer = trim($buffer);
         if (md5("$user:Thomson Gateway:$buffer") == $hash) {
             echo "\n";
             echo "=======================\n";
